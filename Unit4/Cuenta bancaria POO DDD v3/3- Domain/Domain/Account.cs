@@ -33,24 +33,30 @@ namespace Domain
 
             incomes.Add(new Incomes(cash));
 
-            Console.WriteLine($"Su saldo actual es de {balance}");
-
             return balance;
         }
-        public void AddOutcomes(decimal cash)
+        public decimal AddOutcomes(decimal cash)
+        {            
+            balance -= cash;
+
+            outcomes.Add(new Outcomes(cash));
+            
+            return balance;
+        }
+
+        public List<Incomes> GetIncomes() 
+        { 
+            return incomes; 
+        }
+
+        public List<Outcomes> GetOutcomes()
         {
-            if (balance < cash)
-            {
-                Console.WriteLine("El saldo de la cuenta es insuficiente");
-            }
-            else
-            {
-                balance -= cash;
+            return outcomes;
+        }
 
-                outcomes.Add(new Outcomes(cash));
-
-                Console.WriteLine($"Su saldo actual es de {balance}");
-            }
+        public override string ToString()
+        {
+            return $"Your current balance is {balance}";
         }
     }
 }

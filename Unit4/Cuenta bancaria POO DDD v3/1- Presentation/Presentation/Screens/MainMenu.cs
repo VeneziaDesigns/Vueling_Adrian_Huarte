@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business;
 using Infrastructure;
 
 namespace Presentation.Screens
@@ -12,7 +13,31 @@ namespace Presentation.Screens
         //Declaramos option como campo de clase privado
         private string option;
 
-        
+        private readonly IAccountService _accountService;
+
+        private readonly Option1Screen _option1Screen;
+
+        private readonly Option2Screen _option2Screen;
+
+        private readonly Option3Screen _option3Screen;
+
+        private readonly Option4Screen _option4Screen;
+
+        private readonly Option5Screen _option5Screen;
+
+        private readonly Option6Screen _option6Screen;
+
+        public MainMenu(IAccountService accountService)
+        {
+            _accountService = accountService;
+            _option1Screen = new Option1Screen(_accountService);
+            _option2Screen = new Option2Screen(_accountService);
+            _option3Screen = new Option3Screen(_accountService);
+            _option4Screen = new Option4Screen(_accountService);
+            _option5Screen = new Option5Screen(_accountService);
+            _option6Screen = new Option6Screen(_accountService);
+        }
+
         public void Start()
         {
             do
@@ -32,31 +57,36 @@ namespace Presentation.Screens
             Console.WriteLine("6 -Show current money");
             Console.WriteLine("7 -Exit");
             option = Console.ReadLine();
+
+            Console.Clear();
         }
         private void ProcessSelectedOption() 
         {
             switch (option)
             {
                 case "1":
-                    new Option1Screen().Start();
+                    _option1Screen.Start();
                     break;
                 case "2":
-                    new Option2Screen().Start();
+                    _option2Screen.Start();                    
                     break;
                 case "3":
-                    new Option3Screen().Start();
+                    _option3Screen.Start();
                     break;
                 case "4":
-                    new Option4Screen().Start();
+                    _option4Screen.Start();
                     break;
                 case "5":
-                    new Option5Screen().Start();
+                    _option5Screen.Start();
                     break;
                 case "6":
-                    new Option6Screen().Start();
+                    _option6Screen.Start();
                     break;
                 case "7":
-                    new Option7Screen().Start();
+                    Console.WriteLine("Bye!!!");
+                    break;
+                default: 
+                    Console.WriteLine("Please select an option from the list");
                     break;
             }
         }

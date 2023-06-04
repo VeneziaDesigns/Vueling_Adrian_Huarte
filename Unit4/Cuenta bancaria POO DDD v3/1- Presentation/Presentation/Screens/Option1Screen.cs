@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
+using Business;
 using Domain;
 using Infrastructure;
 
@@ -7,25 +8,32 @@ namespace Presentation.Screens
 {
     public class Option1Screen
     {
-        private Account account;
+        private readonly IAccountService _accountService;
+
+        public Option1Screen(IAccountService accountService)
+        {
+            _accountService = accountService;
+        }
 
         public void Start()
         {
             Console.WriteLine("Please enter an amount to deposit");
             string incomeAsString = Console.ReadLine();
-            Console.WriteLine();
 
             (bool isParseable, decimal parsedIncome) = new Parsing().TryParseDecimalValue(incomeAsString);
 
             if (isParseable)
             {
-                if (account == null)
-                {
-                    new Account().AddIncomes(parsedIncome);
-                }
-                decimal balance = account.AddIncomes(parsedIncome);
+                decimal? actualizarSaldo = _accountService.AniadirIngreso(parsedIncome);
 
-                account.balance = balance;
+                if (actualizarSaldo.HasValue)
+                {
+                    Console.WriteLine($"Your current cash is: {actualizarSaldo:0.##}");
+                }
+                else
+                {
+                    Console.WriteLine($"Value '{incomeAsString}' is not a positive number");
+                }
             }
             else
             {

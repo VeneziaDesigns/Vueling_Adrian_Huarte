@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using Business;
 using Domain;
 using Infrastructure;
 
@@ -10,23 +12,32 @@ namespace Presentation.Screens
 {
     public class Option2Screen
     {
-        private Account account;
-       
+        private readonly IAccountService _accountService;
+
+        public Option2Screen(IAccountService accountService)
+        {
+            _accountService = accountService;
+        }
+
         public void Start()
         {
-            Console.WriteLine("please enter an amount to withdraw");
+            Console.WriteLine("Please enter an amount to withdraw");
             string incomeAsString = Console.ReadLine();
-            Console.WriteLine();
 
             (bool isParseable, decimal parsedIncome) = new Parsing().TryParseDecimalValue(incomeAsString);
 
             if (isParseable)
             {
-                if (account == null)
+                decimal? actualizarSaldo = _accountService.AniadirGasto(parsedIncome);
+
+                if (actualizarSaldo.HasValue)
                 {
-                    new Account().AddOutcomes(parsedIncome);
+                    Console.WriteLine($"Your current cash is: {actualizarSaldo:0.##}");
                 }
-                account.AddOutcomes(parsedIncome);
+                else
+                {
+                    Console.WriteLine($"Withdrawal exceeds account balance or '{incomeAsString}' is a negative number");
+                }
             }
             else
             {
