@@ -11,22 +11,11 @@ namespace DomainEntities
         public string TeamName { get; }
         
         public ITWorker Manager { get; set; }
-        public List<ITWorker> Technicians { get; set; }
+        public ITWorker Technicians { get; set; }
 
         public Team(string TeamName)
         {
             this.TeamName = TeamName;
-            Technicians = new List<ITWorker>();
-        }
-
-        public void RemoveTechnician(ITWorker technician)
-        {
-            Technicians.Remove(technician);
-        }
-
-        public List<ITWorker> GetTechnicians()
-        {
-            return Technicians;
         }
     }
 }

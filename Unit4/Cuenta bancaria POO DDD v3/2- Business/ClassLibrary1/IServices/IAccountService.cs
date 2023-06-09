@@ -7,8 +7,8 @@ namespace Business
     {
         decimal? AniadirIngreso(decimal cash);
         decimal? AniadirGasto(decimal cash);
-        List<Incomes> IncomesList();
-        List<Outcomes> OutcomesList();
+        List<Income> IncomesList();
+        List<Outcome> OutcomesList();
         string Balance();
     }
 }

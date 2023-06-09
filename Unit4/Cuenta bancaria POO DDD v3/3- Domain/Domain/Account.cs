@@ -4,34 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//  Domain Entities
+
 namespace Domain
 {
     public class Account
     {
-        public int account { get; set; }
+        public int accountNumber { get; set; }
         public int pass { get; set; }
         public decimal balance { get; set; }
-        public List<Incomes> incomes { get; set; }
-        public List<Outcomes> outcomes { get; set; }
+        public List<Income> incomes { get; set; }
+        public List<Outcome> outcomes { get; set; }
 
         public Account(int account, int pass)
         {
-            this.account = account;
+            this.accountNumber = account;
             this.pass = pass;
         }
 
         public Account()
         {
             balance = 1000;
-            incomes = new List<Incomes>();
-            outcomes = new List<Outcomes>();
+            incomes = new List<Income>();
+            outcomes = new List<Outcome>();
         }
 
         public decimal AddIncomes(decimal cash)
         {
             balance += cash;
 
-            incomes.Add(new Incomes(cash));
+            incomes.Add(new Income(cash));
 
             return balance;
         }
@@ -39,17 +41,17 @@ namespace Domain
         {            
             balance -= cash;
 
-            outcomes.Add(new Outcomes(cash));
+            outcomes.Add(new Outcome(cash));
             
             return balance;
         }
 
-        public List<Incomes> GetIncomes() 
+        public List<Income> GetIncomes() 
         { 
             return incomes; 
         }
 
-        public List<Outcomes> GetOutcomes()
+        public List<Outcome> GetOutcomes()
         {
             return outcomes;
         }

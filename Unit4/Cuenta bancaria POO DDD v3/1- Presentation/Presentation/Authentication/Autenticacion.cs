@@ -41,7 +41,7 @@ namespace Presentation.Authentication
             {
                 Account cuenta = new Account(accountNumber, passNumber);
 
-                if (users.ContainsKey(cuenta.pass) && users[cuenta.pass] == cuenta.account)
+                if (users.ContainsKey(cuenta.pass) && users[cuenta.pass] == cuenta.accountNumber)
                 {
                     Console.WriteLine("Access granted");
                     return true;

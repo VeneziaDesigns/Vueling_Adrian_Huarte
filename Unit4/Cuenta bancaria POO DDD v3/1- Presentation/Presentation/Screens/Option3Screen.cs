@@ -19,7 +19,7 @@ namespace Presentation.Screens
 
         public void Start()
         {
-            List<Incomes> incomesList = _accountService.IncomesList();
+            List<Income> incomesList = _accountService.IncomesList();
 
             if (incomesList.Count == 0)
             {
@@ -31,7 +31,7 @@ namespace Presentation.Screens
                 incomesList.ForEach(income => Console.WriteLine(income));
             }
 
-            List<Outcomes> outcomesList = _accountService.OutcomesList();
+            List<Outcome> outcomesList = _accountService.OutcomesList();
             
             if(outcomesList.Count == 0)
             {

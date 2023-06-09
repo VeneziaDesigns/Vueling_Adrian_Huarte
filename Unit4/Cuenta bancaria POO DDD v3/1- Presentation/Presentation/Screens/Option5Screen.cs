@@ -19,7 +19,7 @@ namespace Presentation.Screens
 
         public void Start()
         {
-            List<Outcomes> outcomesList = _accountService.OutcomesList();
+            List<Outcome> outcomesList = _accountService.OutcomesList();
 
             if (outcomesList.Count == 0)
             {

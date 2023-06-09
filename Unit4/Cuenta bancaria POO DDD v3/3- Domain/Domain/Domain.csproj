@@ -66,9 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="Incomes.cs" />
+    <Compile Include="Income.cs" />
     <Compile Include="IRepositories\IAccountRepository.cs" />
-    <Compile Include="Outcomes.cs" />
+    <Compile Include="Outcome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

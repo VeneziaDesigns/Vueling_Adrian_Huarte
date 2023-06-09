@@ -19,11 +19,16 @@ namespace DomainEntities
         public Worker(string Name, string Surname, DateTime BirthDate,
                         DateTime? LeavingDate = null)
         {
-            this.Id = WorkerIdCounter++;
+            Id = WorkerIdCounter++;
             this.Name = Name;
             this.Surname = Surname;
             this.BirthDate = BirthDate;
             this.LeavingDate = LeavingDate;
+        }
+
+        public Worker()
+        {
+
         }
     }
 }

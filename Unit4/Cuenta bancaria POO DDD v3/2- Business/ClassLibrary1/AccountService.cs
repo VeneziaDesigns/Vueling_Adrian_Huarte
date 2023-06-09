@@ -61,20 +61,20 @@ namespace Business
             return result;
         }
 
-        public List<Incomes> IncomesList()
+        public List<Income> IncomesList()
         {
             Account accountData = _repository.GetBankAccount();
 
-            List<Incomes> incomes = accountData.incomes;
+            List<Income> incomes = accountData.incomes;
 
             return incomes;
         }
 
-        public List<Outcomes> OutcomesList()
+        public List<Outcome> OutcomesList()
         {
             Account accountData = _repository.GetBankAccount();
 
-            List<Outcomes> outcomes = accountData.outcomes;
+            List<Outcome> outcomes = accountData.outcomes;
 
             return outcomes;
         }

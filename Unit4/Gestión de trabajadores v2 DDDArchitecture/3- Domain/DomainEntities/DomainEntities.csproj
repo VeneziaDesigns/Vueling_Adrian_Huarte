@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\ITasksRepository.cs" />
+    <Compile Include="IRepositories\ITeamRepository.cs" />
+    <Compile Include="IRepositories\IWorkersRepository.cs" />
     <Compile Include="ITWorker.cs" />
     <Compile Include="Tasks.cs" />
     <Compile Include="Team.cs" />

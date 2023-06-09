@@ -12,8 +12,8 @@ namespace Domain.tests
             return new Account
             {
                 balance = 0,
-                incomes = new List<Incomes>(),
-                outcomes = new List<Outcomes>(),
+                incomes = new List<Income>(),
+                outcomes = new List<Outcome>(),
             };
         }
            
@@ -55,7 +55,7 @@ namespace Domain.tests
             account.AddIncomes(income);
 
             // Act
-            List<Incomes> incomes = account.GetIncomes();
+            List<Income> incomes = account.GetIncomes();
 
             // Assert
             Assert.True(incomes.Count == 1);
@@ -72,7 +72,7 @@ namespace Domain.tests
             account.AddOutcomes(income2);
 
             // Act
-            List<Outcomes> incomes = account.GetOutcomes();
+            List<Outcome> incomes = account.GetOutcomes();
 
             // Assert
             Assert.True(incomes.Count == 2);
@@ -92,7 +92,7 @@ namespace Domain.tests
 
             // Act
             decimal newBalance = account.AddIncomes(incomeAmount);
-            List<Incomes> incomes = account.GetIncomes();
+            List<Income> incomes = account.GetIncomes();
 
             // Assert
             Assert.Equal(expectedBalance, newBalance);
@@ -112,7 +112,7 @@ namespace Domain.tests
 
             // Act
             decimal newBalance = account.AddOutcomes(outcomeAmount);
-            List<Outcomes> outcomes = account.GetOutcomes();
+            List<Outcome> outcomes = account.GetOutcomes();
 
             // Assert
             Assert.Equal(expectedBalance, newBalance);

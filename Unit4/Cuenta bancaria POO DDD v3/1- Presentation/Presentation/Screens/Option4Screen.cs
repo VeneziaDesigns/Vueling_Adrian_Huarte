@@ -19,7 +19,7 @@ namespace Presentation.Screens
 
         public void Start()
         {
-            List<Incomes> incomesList = _accountService.IncomesList();
+            List<Income> incomesList = _accountService.IncomesList();
 
             if (incomesList.Count == 0)
             {

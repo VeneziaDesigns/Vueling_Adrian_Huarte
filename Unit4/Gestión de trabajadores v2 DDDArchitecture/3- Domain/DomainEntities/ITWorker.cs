@@ -18,6 +18,11 @@ namespace DomainEntities
         public List<string> TechKnowledges { get; set; }
         public Level WorkerLevel { get; set; }
 
+        public ITWorker()
+        {
+            
+        }
+
         public ITWorker(string Name, string Surname, DateTime BirthDate, int YearsOfExperience,
             List<string> TechKnowledges, Level WorkerLevel) : base(Name, Surname, BirthDate)
         {

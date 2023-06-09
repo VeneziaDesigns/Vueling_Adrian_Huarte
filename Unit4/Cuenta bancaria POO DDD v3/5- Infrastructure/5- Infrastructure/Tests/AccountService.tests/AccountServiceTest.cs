@@ -13,10 +13,10 @@ namespace AccountServices.tests
     public class AccountServiceTests
     {
         // Instancia de un objeto simulado (mock) de la interfaz IAccountRepository.
-        private Mock<IAccountRepository> _repositoryMock;
+        private readonly Mock<IAccountRepository> _repositoryMock;
 
         // Instancia de AccountService con el objeto simulado del repositorio inyectado en su constructor.
-        private AccountService _accountService;
+        private readonly AccountService _accountService;
 
         public AccountServiceTests()
         {
@@ -126,12 +126,12 @@ namespace AccountServices.tests
             decimal amount1 = 204.68M;
             decimal amount2 = 634.84M;
             Account accountData = new Account();
-            List<Incomes> expectedIncomes = new List<Incomes> { new Incomes(amount1), new Incomes(amount2) };
+            List<Income> expectedIncomes = new List<Income> { new Income(amount1), new Income(amount2) };
             accountData.incomes = expectedIncomes;
             _repositoryMock.Setup(r => r.GetBankAccount()).Returns(accountData);
 
             // Act
-            List<Incomes> incomes = _accountService.IncomesList();
+            List<Income> incomes = _accountService.IncomesList();
 
             // Assert
             Assert.Equal(expectedIncomes, incomes);
@@ -144,12 +144,12 @@ namespace AccountServices.tests
             decimal amount1 = 204.68M;
             decimal amount2 = 634.84M;
             Account accountData = new Account();
-            List<Outcomes> expectedOutcomes = new List<Outcomes> { new Outcomes(amount1), new Outcomes(amount2) };
+            List<Outcome> expectedOutcomes = new List<Outcome> { new Outcome(amount1), new Outcome(amount2) };
             accountData.outcomes = expectedOutcomes;
             _repositoryMock.Setup(r => r.GetBankAccount()).Returns(accountData);
 
             // Act
-            List<Outcomes> outcomes = _accountService.OutcomesList();
+            List<Outcome> outcomes = _accountService.OutcomesList();
 
             // Assert
             Assert.Equal(expectedOutcomes, outcomes);
