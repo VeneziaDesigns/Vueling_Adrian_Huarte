@@ -1,4 +1,5 @@
-﻿using CrudDomain.RepositoryContracts;
+﻿using System.Collections.Generic;
+using CrudDomain.RepositoryContracts;
 using CrudServices.ServiceContracts;
 using TestSQLServer.DomainEntities;
 
@@ -10,10 +11,13 @@ namespace CrudServices.ServiceImplementations
 
         private readonly ICacheRepository _cacheRepository;
 
-        public CrudService(ICrudRepository bdRepository, ICacheRepository cacheRepository)
+        private readonly IBackupRepository _backupRepository;
+
+        public CrudService(ICrudRepository bdRepository, ICacheRepository cacheRepository, IBackupRepository backupRepository)
         {
             _bdRepository = bdRepository;
             _cacheRepository = cacheRepository;
+            _backupRepository = backupRepository;
         }
 
         public List<UserWorkers> GetAllUsersService()
@@ -26,6 +30,8 @@ namespace CrudServices.ServiceImplementations
 
             bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
 
+            _backupRepository.InsertBackup(getAllUserFromDb);
+
             return getAllUserFromDb;
         }
 
@@ -33,17 +39,23 @@ namespace CrudServices.ServiceImplementations
         {
             List<UserWorkers>? cacheUsers = _cacheRepository.GetCache();
 
-            UserWorkers? userInCache = cacheUsers?.FirstOrDefault(user => user.Name.Equals(findWorker.Name));
+            UserWorkers? userInCache = cacheUsers?.FirstOrDefault(user => (user.Name ?? "").Equals(findWorker.Name)
+                                       && (user.Surname ?? "").Equals(findWorker.Surname));
 
             if (userInCache is not null) return userInCache;
-                
-            // TODO Setear la cache con un solo user?
 
-            UserWorkers? getUserFromDb = _bdRepository.GetByNameRepository(findWorker);
+            List<UserWorkers> getAllUserFromDb = _bdRepository.GetAllUsersRepository();
 
-            if (getUserFromDb != null)
+            bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
+
+            _backupRepository.InsertBackup(getAllUserFromDb);
+
+            UserWorkers? getWorker = getAllUserFromDb?.FirstOrDefault(user => (user.Name ?? "").Equals(findWorker.Name) 
+                                     && (user.Surname ?? "").Equals(findWorker.Surname));
+
+            if (getWorker != null)
             {
-                return getUserFromDb;
+                return getWorker;
             }
              
             return null;
@@ -52,21 +64,45 @@ namespace CrudServices.ServiceImplementations
         public void InsertWorkerService(UserWorkers findUser)
         {
             _bdRepository.InsertWorkerRepository(findUser);
+
+            List<UserWorkers> getAllUserFromDb = _bdRepository.GetAllUsersRepository();
+
+            bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
+
+            _backupRepository.InsertBackup(getAllUserFromDb);
         }
 
         public void UpdateWorkerService(string findUser, UserWorkers userWorkers)
         {
             _bdRepository.UpdateWorkerRepository(findUser, userWorkers);
+
+            List<UserWorkers> getAllUserFromDb = _bdRepository.GetAllUsersRepository();
+
+            bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
+
+            _backupRepository.InsertBackup(getAllUserFromDb);
         }
 
         public void UpdateSalaryService(UserWorkers updateSalary)
         {
             _bdRepository.UpdateSalaryRepository(updateSalary);
+
+            List<UserWorkers> getAllUserFromDb = _bdRepository.GetAllUsersRepository();
+
+            bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
+
+            _backupRepository.InsertBackup(getAllUserFromDb);
         }
 
         public void DeleteWorkerService(UserWorkers deleteWorker)
         {
             _bdRepository.DeleteWorkerRepository(deleteWorker);
+
+            List<UserWorkers> getAllUserFromDb = _bdRepository.GetAllUsersRepository();
+
+            bool cacheDone = _cacheRepository.SetCache(getAllUserFromDb);
+
+            _backupRepository.InsertBackup(getAllUserFromDb);
         }
     }
 }

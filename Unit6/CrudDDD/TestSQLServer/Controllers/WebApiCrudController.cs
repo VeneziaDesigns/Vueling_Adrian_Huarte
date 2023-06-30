@@ -33,12 +33,12 @@ namespace TestSQLServer.Controllers
                     string workersToString = string.Join(Environment.NewLine, getAllUsersFromDb.Select(user =>
                     $"Name: {user.Name}, Surname: {user.Surname}, Salary: {user.Salary}, Years of Experience: {user.YearsOfExperience}"));
 
-                    _logger.LogWarning($"The following information was consulted in the database:\n {workersToString}.");
+                    _logger.LogInformation($"The following information was consulted in the database:\n {workersToString}.");
 
                     return Ok(getAllUsersFromDb);
                 }
 
-                _logger.LogError($"The database query has not produced results.");
+                _logger.LogInformation($"The database query has not produced results.");
 
                 return BadRequest("No users registered in the system.");
             }
@@ -46,7 +46,7 @@ namespace TestSQLServer.Controllers
             {
                 _logger.LogError($"An error occurred during the query.");
 
-                return BadRequest($"Unespected error occurred: {e.Message}");
+                return BadRequest($"Unexpected error occurred: {e.Message}");
             }
         }
         #endregion
@@ -59,7 +59,7 @@ namespace TestSQLServer.Controllers
         {
             try
             {
-                if (!(name.IsNullOrEmpty() && surName.IsNullOrEmpty()))
+                if (!(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surName)))
                 {
                     UserWorkers findWorker = new()
                     {
@@ -70,15 +70,15 @@ namespace TestSQLServer.Controllers
                     UserWorkers? getUserFromDb = _services.GetByNameService(findWorker);
 
                     if (getUserFromDb != null)
-                    {
+                    { 
                         string workerToString = $"Name: {getUserFromDb.Name}, Surname: {getUserFromDb.Surname}, Salary: {getUserFromDb.Salary}, Years of Experience: {getUserFromDb.YearsOfExperience}.";
 
-                        _logger.LogWarning($"The following information was consulted in the database:\n {workerToString}.");
+                        _logger.LogInformation($"The following information was consulted in the database:\n {workerToString}.");
 
                         return Ok(getUserFromDb);
                     }
 
-                    _logger.LogError($"The user of the query is not in the system.");
+                    _logger.LogInformation($"The user of the query is not in the system.");
 
                     return BadRequest("User not found");
                 }
@@ -89,7 +89,7 @@ namespace TestSQLServer.Controllers
             {
                 _logger.LogError("An error occurred during the query.");
 
-                return BadRequest($"Unespected error occurred: {e.Message}");
+                return BadRequest($"Unexpected error occurred: {e.Message}");
             }
         }
         #endregion
@@ -113,7 +113,7 @@ namespace TestSQLServer.Controllers
 
                     _services.InsertWorkerService(insertWorkerServices);
 
-                    _logger.LogWarning($"The user {insertWorkerServices.Name} {insertWorkerServices.Surname} was successfully created.");
+                    _logger.LogInformation($"The user {insertWorkerServices.Name} {insertWorkerServices.Surname} was successfully created.");
 
                     return Ok("User successfully created.");
                 }
@@ -149,7 +149,7 @@ namespace TestSQLServer.Controllers
 
                     _services.UpdateWorkerService(FindByName, updateWorkerServices);
 
-                    _logger.LogWarning($"The user {updateWorkerServices.Name} {updateWorkerServices.Surname} was successfully update.");
+                    _logger.LogInformation($"The user {updateWorkerServices.Name} {updateWorkerServices.Surname} was successfully update.");
 
                     return Ok("User successfully update");
                 }
@@ -183,7 +183,7 @@ namespace TestSQLServer.Controllers
 
                     _services.UpdateSalaryService(updateSalary);
 
-                    _logger.LogWarning($"Updated salary of {updateSalary.Name} {updateSalary.Surname} to {updateSalary.Salary}.");
+                    _logger.LogInformation($"Updated salary of {updateSalary.Name} {updateSalary.Surname} to {updateSalary.Salary}.");
 
                     return Ok("Salary successfully update");
                 }
@@ -219,7 +219,7 @@ namespace TestSQLServer.Controllers
 
                     _services.DeleteWorkerService(deleteWorker);
 
-                    _logger.LogWarning($"The user {deleteWorker.Name} {deleteWorker.Surname} was successfully delete.");
+                    _logger.LogInformation($"The user {deleteWorker.Name} {deleteWorker.Surname} was successfully delete.");
 
                     return Ok("User successfully delete");
                 }

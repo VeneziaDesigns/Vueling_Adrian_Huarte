@@ -31,26 +31,6 @@ namespace CrudInfrastructure.Data.RepositoryImplementations
             return resultListFromDb;
         }
 
-        public UserWorkers? GetByNameRepository(UserWorkers findWorker)
-        {
-            Users? findUser = _dbContext.Users.Include(user => user.Worker)
-                        .FirstOrDefault(user => user.Name.Equals(findWorker.Name)
-                                        && user.Surname.Equals(findWorker.Surname));
-
-            if (findUser != null)
-            {
-                UserWorkers getFromDb = new()
-                {
-                    Name = findUser.Name,
-                    Surname = findUser.Surname,
-                    Salary = findUser.Worker.Salary,
-                    YearsOfExperience = findUser.Worker.YearsOfExperience,
-                };
-                return getFromDb;
-            }
-            return null;
-        }
-
         public void InsertWorkerRepository(UserWorkers userWorkers)
         {
             _dbContext.Users.Add(new Users

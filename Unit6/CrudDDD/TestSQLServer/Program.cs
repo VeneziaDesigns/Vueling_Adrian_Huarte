@@ -30,6 +30,7 @@ builder.Services.AddMemoryCache(x =>
 builder.Services.AddTransient<ICrudService, CrudService>();
 builder.Services.AddTransient<ICrudRepository, CrudRepository>();
 builder.Services.AddTransient<ICacheRepository, CacheRepository>();
+builder.Services.AddTransient<IBackupRepository, BackupRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
