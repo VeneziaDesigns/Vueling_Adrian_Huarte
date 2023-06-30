@@ -1,0 +1,9 @@
+﻿Application Data Caching
+
+NuGets necesarios:
+
+1 - Microsoft.Extensions.Caching.Memory => Permite usar la interfaz IMemoryCache
+
+Sliding Expiration => caducará la entrada si no se ha accedido a ella en un período de tiempo determinado.
+
+Absolute Expiration => caducará la entrada después de un período de tiempo establecido.
