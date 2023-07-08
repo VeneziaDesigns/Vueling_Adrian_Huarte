@@ -37,6 +37,6 @@
         "DBConnection": "Data Source=.;Initial Catalog=ApiCrudNet6;Integrated Security=True;Trust Server Certificate= true;"
     },
     "MySettings": {
-        "BackupFilePath": "..\\CrudInfrastructure.Data\\Backup\\Backup.json"
+        "BackupFilePath": "Backup\\Backup.json"
     }
 }

@@ -1,6 +1,15 @@
-﻿using CrudServices.ServiceContracts;
+﻿using CrudApi.DataModels;
+using CrudApi.DbContextFolder;
+using CrudInfrastructure.Data.RepositoryImplementations;
+using CrudServices.ServiceContracts;
+using CrudServices.ServiceImplementations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Moq;
 using TestSQLServer.Controllers;
 using TestSQLServer.DomainEntities;
@@ -9,9 +18,94 @@ namespace CrudDDDTestSuite.ControllerTest
 {
     public class ControllerTestSuite
     {
+        #region GetConfig
+        private IConfiguration? _config;
+
+        private static IConfiguration? GetConfiguration()
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("testsettings.json")
+                .Build();
+
+            return configuration;
+        } 
+        #endregion
+
+        #region DbContextConfig
+        private static ApiCrudNet6Context GetDbContext(string connectionString)
+        {
+            DbContextOptionsBuilder<ApiCrudNet6Context> optionsBuilder = new();
+            optionsBuilder.UseSqlServer(connectionString);
+            ApiCrudNet6Context dbContext = new(optionsBuilder.Options);
+
+            return dbContext;
+        } 
+        #endregion
+
+        #region PrivateControllerInitializers
+        private WebApiCrudController InitController()
+        {
+
+            var builder = new ConfigurationBuilder().AddJsonFile($"testsettings.json", optional: false);
+
+            var mockLogger = new Mock<ILogger<WebApiCrudController>>();
+
+            string connectionString = GetConfiguration().GetConnectionString("DBConnection");
+            ApiCrudNet6Context dbContext = GetDbContext(connectionString);
+
+            _config = builder.Build();
+
+            var services = new ServiceCollection();
+            services.AddMemoryCache();
+            var serviceProvider = services.BuildServiceProvider();
+
+            var memoryCache = serviceProvider.GetService<IMemoryCache>();
+
+            WebApiCrudController controller = new(
+                    mockLogger.Object,
+                    new CrudService(
+                        new CrudRepository(
+                            dbContext
+                        ),
+                        new CacheRepository(memoryCache),
+                        new BackupRepository(_config)));
+
+            return controller;
+        }
+
+        private WebApiCrudController InitControllerWithMockedService()
+        {
+            var mockLogger = new Mock<ILogger<WebApiCrudController>>();
+            Mock<ICrudService> serviceMock = new();
+            serviceMock.Setup(x => x.GetAllUsersService());
+
+            ICrudService mockedService = serviceMock.Object;
+
+            return new WebApiCrudController(mockLogger.Object, mockedService);
+        }
+        #endregion
+
+        #region IntegrationTest
+        [Fact]
+        public void IntegrationTest()
+        {
+            // Arrange
+            WebApiCrudController controller = InitController();
+
+            // Act
+            IActionResult result = controller.GetAll();
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnedUsers = Assert.IsType<List<UserWorkers>>(okResult.Value);
+            Assert.Equal(8, returnedUsers.Count);
+        }
+        #endregion
+
         #region GetAllUnitTest
         [Fact]
-        public void GetAll_WithUsers_ReturnsOkResult_CallMethodTIemesOnce()
+        public void GetAll_WithUsers_ReturnsOkResult_CallMethodTimesOnce()
         {
             // Arrange
             var mockServices = new Mock<ICrudService>();
@@ -179,5 +273,6 @@ namespace CrudDDDTestSuite.ControllerTest
             mockServices.Verify(s => s.GetByNameService(It.IsAny<UserWorkers>()), Times.Once);
         }
         #endregion
+
     }
 }

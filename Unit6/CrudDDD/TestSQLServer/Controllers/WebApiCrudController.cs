@@ -1,6 +1,5 @@
 ﻿using CrudServices.ServiceContracts;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using TestSQLServer.DomainEntities;
 

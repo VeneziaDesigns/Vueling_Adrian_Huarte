@@ -1,0 +1,32 @@
+{
+    "Coro": [
+        {
+            "category": "soprano",
+            "amount": 1
+        },
+        {
+            "category": "alto",
+            "amount": 1
+        },
+        {
+            "category": "tenor",
+            "amount": 1
+        },
+        {
+            "category": "bajo",
+            "amount": 1
+        }
+    ],
+    "Cuerda percutida": [
+        {
+            "category": "pianista",
+            "amount": 1
+        }
+    ],
+    "Dirección": [
+        {
+            "category": "director de coro",
+            "amount": 1
+        }
+    ]
+} 

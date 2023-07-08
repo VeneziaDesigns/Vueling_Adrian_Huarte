@@ -1,4 +1,5 @@
 ﻿using CrudDomain.RepositoryContracts;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using TestSQLServer.DomainEntities;
 
@@ -8,9 +9,9 @@ namespace CrudInfrastructure.Data.RepositoryImplementations
     {
         private readonly string _backupFilePath;
 
-        public BackupRepository()
+        public BackupRepository(IConfiguration configuration)
         {
-            _backupFilePath = @"..\CrudInfrastructure.Data\Backup\Backup.json";
+            _backupFilePath = configuration.GetSection("MySettings:BackupFilePath").Value;
         }
 
         public void InsertBackup(List<UserWorkers> backupUsers)

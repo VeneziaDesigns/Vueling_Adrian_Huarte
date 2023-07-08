@@ -1,0 +1,34 @@
+[
+    {
+        "Nombre": "Ana Sanz",
+        "Categorias": "Soprano,Alto,Director de Coro"
+    },
+    {
+        "Nombre": "Eva Ruiz",
+        "Categorias": "Alto"
+    },
+    {
+        "Nombre": "Juan Pérez",
+        "Categorias": "Tenor"
+    },
+    {
+        "Nombre": "José López",
+        "Categorias": "Barítono,Bajo"
+    },
+    {
+        "Nombre": "Katia Pons",
+        "Categorias": "Pianista"
+    },
+    {
+        "Nombre": "Juana Mateo",
+        "Categorias": "Soprano,Pianista,Director de Coro"
+    },
+    {
+        "Nombre": "Julio Martín",
+        "Categorias": "Barítono,Director de Coro"
+    },
+    {
+        "Nombre": "Julia Marín",
+        "Categorias": "Director de Coro"
+    }
+] 
