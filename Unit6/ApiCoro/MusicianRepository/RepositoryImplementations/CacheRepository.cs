@@ -13,19 +13,18 @@ namespace MusicianRepository.RepositoryImplementations
             _cache = cache;
         }
 
-        public List<Musicos>? GetCache()
+        public T? GetCache<T>(string key)
         {
-            return _cache.Get<List<Musicos>?>("musicians");
+            var response = _cache.Get<T>(key);
+
+            return response;
         }
 
-        public void SetCache(List<Musicos>? musicians)
-        {
-            var cacheOptions = new MemoryCacheEntryOptions()
-                .SetAbsoluteExpiration(TimeSpan.FromMinutes(1))
-                .SetSlidingExpiration(TimeSpan.FromSeconds(20))
-                .SetSize(1024);
 
-            _cache.Set("musicians", musicians, cacheOptions);
+
+        public void SetCache<T>(string key, T element)
+        {
+            _cache.Set(key, element);
         }
     }
 }

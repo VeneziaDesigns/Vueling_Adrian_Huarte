@@ -3,9 +3,53 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- DistributedServices", "1- DistributedServices", "{B366F62A-91F7-4B0A-B411-3275E0AD90B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Business", "2- Business", "{CDE28AFC-D96E-401D-AE36-C94659E44960}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Domain", "3- Domain", "{9F2B4FED-E771-4CEF-855C-B683789378B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- Infrastructure", "4- Infrastructure", "{F574A5E0-468D-41B1-8852-9A3C6DCA60D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiRecetas", "ApiRecetas\ApiRecetas.csproj", "{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecetasService", "RecetasService\RecetasService.csproj", "{40C0FF76-2868-4B61-9379-E5ECC0F797FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecetasDomain", "RecetasDomain\RecetasDomain.csproj", "{46CD4C12-D4E2-4B03-8B91-546663FAE0D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecetasRepository", "RecetasRepository\RecetasRepository.csproj", "{A210CD8F-7551-477A-BD44-0726635AFE53}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C0FF76-2868-4B61-9379-E5ECC0F797FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C0FF76-2868-4B61-9379-E5ECC0F797FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C0FF76-2868-4B61-9379-E5ECC0F797FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C0FF76-2868-4B61-9379-E5ECC0F797FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CD4C12-D4E2-4B03-8B91-546663FAE0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CD4C12-D4E2-4B03-8B91-546663FAE0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CD4C12-D4E2-4B03-8B91-546663FAE0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CD4C12-D4E2-4B03-8B91-546663FAE0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A210CD8F-7551-477A-BD44-0726635AFE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A210CD8F-7551-477A-BD44-0726635AFE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A210CD8F-7551-477A-BD44-0726635AFE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A210CD8F-7551-477A-BD44-0726635AFE53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FFE5FF0-B2C0-4A53-9B31-85562B7AC78F} = {B366F62A-91F7-4B0A-B411-3275E0AD90B1}
+		{40C0FF76-2868-4B61-9379-E5ECC0F797FA} = {CDE28AFC-D96E-401D-AE36-C94659E44960}
+		{46CD4C12-D4E2-4B03-8B91-546663FAE0D1} = {9F2B4FED-E771-4CEF-855C-B683789378B6}
+		{A210CD8F-7551-477A-BD44-0726635AFE53} = {F574A5E0-468D-41B1-8852-9A3C6DCA60D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FEE2808-F6B6-4636-A45D-41235A5CB93E}

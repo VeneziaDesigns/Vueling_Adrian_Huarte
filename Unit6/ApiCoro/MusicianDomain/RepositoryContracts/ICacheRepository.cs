@@ -9,7 +9,7 @@ namespace MusicianDomain.RepositoryContracts
 {
     public interface ICacheRepository
     {
-        List<Musicos>? GetCache();
-        void SetCache(List<Musicos>? musicians);
+        T? GetCache<T>(string key);
+        void SetCache<T>(string key, T element);
     }
 }

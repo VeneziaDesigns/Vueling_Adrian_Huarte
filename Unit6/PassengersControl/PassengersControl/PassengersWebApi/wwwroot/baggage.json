@@ -1,0 +1,92 @@
+[
+    {
+        "baggageId": "B001",
+        "passengerId": "P456",
+        "weight": 23.5,
+        "type": "Carry-on"
+    },
+    {
+        "baggageId": "B002",
+        "passengerId": "P789",
+        "weight": 5.2,
+        "type": "Personal"
+    },
+    {
+        "baggageId": "B003",
+        "passengerId": "P789",
+        "weight": 18.6,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B004",
+        "passengerId": "P890",
+        "weight": 5.1,
+        "type": "Carry-on"
+    },
+    {
+        "baggageId": "B005",
+        "passengerId": "P234",
+        "weight": 7.3,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B006",
+        "passengerId": "P890",
+        "weight": 10.8,
+        "type": "Personal"
+    },
+    {
+        "baggageId": "B007",
+        "passengerId": "P234",
+        "weight": 19.5,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B008",
+        "passengerId": "P567",
+        "weight": 14.9,
+        "type": "Personal"
+    },
+    {
+        "baggageId": "B009",
+        "passengerId": "P678",
+        "weight": 30.2,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B010",
+        "passengerId": "P456",
+        "weight": 10.3,
+        "type": "Carry-on"
+    },
+    {
+        "baggageId": "B011",
+        "passengerId": "P456",
+        "weight": 24.1,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B012",
+        "passengerId": "P345",
+        "weight": 9.5,
+        "type": "Personal"
+    },
+    {
+        "baggageId": "B013",
+        "passengerId": "P345",
+        "weight": 16.8,
+        "type": "Personal"
+    },
+    {
+        "baggageId": "B014",
+        "passengerId": "P890",
+        "weight": 21.9,
+        "type": "Checked"
+    },
+    {
+        "baggageId": "B015",
+        "passengerId": "P234",
+        "weight": 29.7,
+        "type": "Checked"
+    }
+]

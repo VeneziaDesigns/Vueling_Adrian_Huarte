@@ -19,7 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicianDomain", "MusicianD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicianRepository", "MusicianRepository\MusicianRepository.csproj", "{014B243D-3C16-44BC-9D42-1CDFC6584B43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiciansManagement.DTOs", "MusiciansManagement.DTOs\MusiciansManagement.DTOs.csproj", "{912C853C-C206-4267-947D-BC4C8BC7624C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusiciansManagement.DTOs", "MusiciansManagement.DTOs\MusiciansManagement.DTOs.csproj", "{912C853C-C206-4267-947D-BC4C8BC7624C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{630E1CC6-F3DB-4D8F-A7AE-293D7FC71658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCoro.WebAPI.Test", "MusiciansControllerTestSuite\ApiCoro.WebAPI.Test.csproj", "{CA726B9E-7916-41C4-93F9-2D6467FB1257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.ApiCoro.Test", "Business.ApiCoro.Test\Business.ApiCoro.Test.csproj", "{5B3C81CE-E662-4127-9096-896D6C3C8850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.ApiCoro.Test", "Repository.ApiCoro.Test\Repository.ApiCoro.Test.csproj", "{B87B1A18-4069-47E5-A6A6-4102249B3DE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +55,18 @@ Global
 		{912C853C-C206-4267-947D-BC4C8BC7624C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{912C853C-C206-4267-947D-BC4C8BC7624C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{912C853C-C206-4267-947D-BC4C8BC7624C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA726B9E-7916-41C4-93F9-2D6467FB1257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA726B9E-7916-41C4-93F9-2D6467FB1257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA726B9E-7916-41C4-93F9-2D6467FB1257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA726B9E-7916-41C4-93F9-2D6467FB1257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B3C81CE-E662-4127-9096-896D6C3C8850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3C81CE-E662-4127-9096-896D6C3C8850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3C81CE-E662-4127-9096-896D6C3C8850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3C81CE-E662-4127-9096-896D6C3C8850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87B1A18-4069-47E5-A6A6-4102249B3DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87B1A18-4069-47E5-A6A6-4102249B3DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87B1A18-4069-47E5-A6A6-4102249B3DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87B1A18-4069-47E5-A6A6-4102249B3DE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +77,9 @@ Global
 		{CE7D3CBD-2832-45A0-9F4A-0112C1DDA5D1} = {A6F8CD47-9FE2-456D-ACA5-71C72349878B}
 		{014B243D-3C16-44BC-9D42-1CDFC6584B43} = {46F4F805-B84D-4086-8B38-97510188D210}
 		{912C853C-C206-4267-947D-BC4C8BC7624C} = {029AC404-351A-4DCF-AD52-B1D840F6639A}
+		{CA726B9E-7916-41C4-93F9-2D6467FB1257} = {630E1CC6-F3DB-4D8F-A7AE-293D7FC71658}
+		{5B3C81CE-E662-4127-9096-896D6C3C8850} = {630E1CC6-F3DB-4D8F-A7AE-293D7FC71658}
+		{B87B1A18-4069-47E5-A6A6-4102249B3DE5} = {630E1CC6-F3DB-4D8F-A7AE-293D7FC71658}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D5C03A1-B74D-4C53-88AD-9FAE268C9021}

@@ -9,7 +9,7 @@ namespace MusicianDomain.DomainEntities
     public class Musicos
     {
         public string? Nombre { get; set; }
-        public List<string>? Categorias { get; set; }
-        public List<string>? Fechas { get; set; }
+        public List<string>? Categorias { get; set; } = new List<string>();
+        public List<string>? Fechas { get; set; } = new List<string>();
     }
 }

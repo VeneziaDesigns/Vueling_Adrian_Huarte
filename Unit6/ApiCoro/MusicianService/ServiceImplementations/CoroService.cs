@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MusicianDomain.DomainEntities;
+﻿using MusicianDomain.DomainEntities;
 using MusicianDomain.RepositoryContracts;
-using MusicianRepository.DataModels;
 using MusicianService.ServiceContracts;
 using MusiciansManagement.DTOs;
 
@@ -26,14 +23,17 @@ namespace MusicianService.ServiceImplementations
 
         public List<MusicianDTO> GetConcert(string date)
         {
-            List<Musicos>? cacheMusicians = _cacheRepository.GetCache();
+            List<Musicos>? musicians = _cacheRepository.GetCache<List<Musicos>>("musicians");
 
-            //todo if (cacheMusicians is not null) return cacheMusicians;
+            if (musicians == null) 
+            {
+                musicians = _musicosRepository.GetMusicians();
 
-            List<Musicos>? musicians = _musicosRepository.GetMusicians();
-            _cacheRepository.SetCache(musicians);
+                _cacheRepository.SetCache("musicians", musicians);
+            }
 
             List<Musicos>? availableMusicians = _diasOcupadosRepository.GetFreeDays(musicians, date);
+
             List<MusicianNeedForMeetingInfo>? requiredMusicians = _conciertoRepository.GetTypes();
 
             List<Musicos>? musiciansOrderByCountRole = MusiciansOrderByCountRole(availableMusicians);

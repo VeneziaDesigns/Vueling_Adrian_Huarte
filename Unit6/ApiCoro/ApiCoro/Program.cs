@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Caching.Memory;
 using MusicianDomain.RepositoryContracts;
 using MusicianRepository.RepositoryImplementations;
 using MusicianService.ServiceContracts;
@@ -18,10 +19,14 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
 // Servicio de la cache
-builder.Services.AddMemoryCache(x =>
+builder.Services.AddMemoryCache(memoryCacheOptions =>
 {
-    x.SizeLimit = 2048;
-    x.ExpirationScanFrequency = TimeSpan.FromMinutes(1);
+    memoryCacheOptions.ExpirationScanFrequency = TimeSpan.FromMinutes(3);
+    MemoryCacheEntryOptions cacheOptions = new MemoryCacheEntryOptions
+    {
+        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(6),
+        SlidingExpiration = TimeSpan.FromMinutes(1.5)
+    };
 });
 
 // Add services to the container.
