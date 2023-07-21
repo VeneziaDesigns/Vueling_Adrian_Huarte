@@ -1,0 +1,38 @@
+[
+    {
+        "Colour": "red",
+        "IntParseable": "56",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:43:26.0483308+02:00"
+    },
+    {
+        "Colour": "red",
+        "IntParseable": "102",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:44:20.7577633+02:00"
+    },
+    {
+        "Colour": "red",
+        "IntParseable": "101",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:47:09.9665731+02:00"
+    },
+    {
+        "Colour": "red",
+        "IntParseable": "0",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:49:28.525474+02:00"
+    },
+    {
+        "Colour": "blue",
+        "IntParseable": "56",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:50:17.9110038+02:00"
+    },
+    {
+        "Colour": "gREEN",
+        "IntParseable": "56",
+        "Free": "Manolo",
+        "Date": "2023-06-13T20:51:54.2466802+02:00"
+    }
+]
