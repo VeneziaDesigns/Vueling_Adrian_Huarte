@@ -1,0 +1,32 @@
+[
+    {
+        "flightId": "FL123",
+        "departure": "New York",
+        "arrival": "London",
+        "flightDate": "2023-05-01T08:00:00.000Z"
+    },
+    {
+        "flightId": "FL456",
+        "departure": "Los Angeles",
+        "arrival": "Sydney",
+        "flightDate": "2023-06-15T14:30:00.000Z"
+    },
+    {
+        "flightId": "FL789",
+        "departure": "Paris",
+        "arrival": "Tokyo",
+        "flightDate": "2023-07-20T22:45:00.000Z"
+    },
+    {
+        "flightId": "FL101",
+        "departure": "Chicago",
+        "arrival": "Beijing",
+        "flightDate": "2023-08-10T12:15:00.000Z"
+    },
+    {
+        "flightId": "FL202",
+        "departure": "Madrid",
+        "arrival": "Moscow",
+        "flightDate": "2023-09-05T18:20:00.000Z"
+    }
+]

@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Juan",
+        "surname": "Pérez",
+        "flightId": "FL123",
+        "passengerId": "P456",
+        "weight": 70.5
+    },
+    {
+        "name": "María",
+        "surname": "García",
+        "flightId": "FL456",
+        "passengerId": "P789",
+        "weight": 60.2
+    },
+    {
+        "name": "Pedro",
+        "surname": "Martínez",
+        "flightId": "FL789",
+        "passengerId": "P123",
+        "weight": 85.1
+    },
+    {
+        "name": "Ana",
+        "surname": "Sánchez",
+        "flightId": "FL123",
+        "passengerId": "P234",
+        "weight": 61.8
+    },
+    {
+        "name": "Jorge",
+        "surname": "González",
+        "flightId": "FL456",
+        "passengerId": "P567",
+        "weight": 68.9
+    },
+    {
+        "name": "Sofía",
+        "surname": "Hernández",
+        "flightId": "FL789",
+        "passengerId": "P890",
+        "weight": 58.1
+    },
+    {
+        "name": "Luis",
+        "surname": "García",
+        "flightId": "FL123",
+        "passengerId": "P345",
+        "weight": 75.2
+    },
+    {
+        "name": "Lucía",
+        "surname": "Martínez",
+        "flightId": "FL456",
+        "passengerId": "P678",
+        "weight": 63.2
+    },
+    {
+        "name": "Roberto",
+        "surname": "López",
+        "flightId": "FL789",
+        "passengerId": "P901",
+        "weight": 82.7
+    },
+    {
+        "name": "Marta",
+        "surname": "Sánchez",
+        "flightId": "FL123",
+        "passengerId": "P456",
+        "weight": 61.4
+    },
+    {
+        "name": "Carlos",
+        "surname": "González",
+        "flightId": "FL456",
+        "passengerId": "P789",
+        "weight": 75.1
+    },
+    {
+        "name": "Verónica",
+        "surname": "Martínez",
+        "flightId": "FL789",
+        "passengerId": "P123",
+        "weight": 53.9
+    },
+    {
+        "name": "Isabel",
+        "surname": "García",
+        "flightId": "FL123",
+        "passengerId": "P567",
+        "weight": 72.3
+    },
+    {
+        "name": "Gustavo",
+        "surname": "Hernández",
+        "flightId": "FL456",
+        "passengerId": "P890",
+        "weight": 59.8
+    },
+    {
+        "name": "Laura",
+        "surname": "Gómez",
+        "flightId": "FL202",
+        "passengerId": "P234",
+        "weight": 88.4
+    }
+]

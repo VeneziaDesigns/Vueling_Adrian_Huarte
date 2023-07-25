@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace VuelingInfrastructure.DataModels
+namespace Infrastructure.DataModels
 {
     public class BaggageFromJson
     {
