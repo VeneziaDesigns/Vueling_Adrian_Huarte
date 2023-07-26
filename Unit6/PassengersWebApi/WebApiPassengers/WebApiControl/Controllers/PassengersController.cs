@@ -31,7 +31,7 @@ namespace WebApiControl.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError(message: ex.Message);
                 return BadRequest($"{ex.Message}");
             }
         }
@@ -48,7 +48,7 @@ namespace WebApiControl.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError(message: ex.Message);
                 return BadRequest($"{ex.Message}");
             }
         }
@@ -65,7 +65,7 @@ namespace WebApiControl.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError(message: ex.Message);
                 return BadRequest($"{ex.Message}");
             }
         }
@@ -92,7 +92,7 @@ namespace WebApiControl.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError(message: ex.Message);
                 return BadRequest($"{ex.Message}");
             }
         }

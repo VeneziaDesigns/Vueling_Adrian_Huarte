@@ -15,9 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Backup\Backup.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="testsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

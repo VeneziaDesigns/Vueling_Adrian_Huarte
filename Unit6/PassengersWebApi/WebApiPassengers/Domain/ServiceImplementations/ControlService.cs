@@ -11,13 +11,15 @@ namespace Domain.ServiceImplementations
         private readonly IPassengersRepository _passenggersRepository;
         private readonly IBaggageRepository _baggageRepository;
         private readonly IFlightsRepository _flightsRepository;
+        private readonly ICacheRepository _cacheRepository;
 
         public ControlService(IPassengersRepository passenggersRepository, IBaggageRepository baggageRepository,
-                                                                           IFlightsRepository flightsRepository)
+                                        IFlightsRepository flightsRepository, ICacheRepository cacheRepository)
         {
             _passenggersRepository = passenggersRepository;
             _baggageRepository = baggageRepository;
             _flightsRepository = flightsRepository;
+            _cacheRepository = cacheRepository;
         }
 
         public async Task<List<PassengersByFlightDateResponse>> GetAllPassengersByDate()
@@ -58,9 +60,38 @@ namespace Domain.ServiceImplementations
 
         private async Task<(List<PassengersInfo>, List<BaggagesInfo>, List<FlightsInfo>)> GetAllData()
         {
-            List<PassengersInfo> allPassengers = await _passenggersRepository.GetPassengersInfo();
-            List<BaggagesInfo> allBaggages = await _baggageRepository.GetBaggagesInfo();
-            List<FlightsInfo> allFlights = await _flightsRepository.GetFlightsInfo();
+            #region Get/CachingPassengersRepository
+            List<PassengersInfo>? allPassengers = _cacheRepository.GetCache<List<PassengersInfo>>("passengers");
+
+            if (allPassengers == null)
+            {
+                allPassengers = await _passenggersRepository.GetPassengersInfo();
+
+                _cacheRepository.SetCache("passengers", allPassengers);
+            }
+            #endregion
+
+            #region Get/CachingBaggagesRepository
+            List<BaggagesInfo>? allBaggages = _cacheRepository.GetCache<List<BaggagesInfo>>("baggages");
+
+            if (allBaggages == null)
+            {
+                allBaggages = await _baggageRepository.GetBaggagesInfo();
+
+                _cacheRepository.SetCache("baggages", allBaggages);
+            }
+            #endregion
+
+            #region Get/CachingFlightsRepository
+            List<FlightsInfo>? allFlights = _cacheRepository.GetCache<List<FlightsInfo>>("flights");
+
+            if (allFlights == null)
+            {
+                allFlights = await _flightsRepository.GetFlightsInfo();
+
+                _cacheRepository.SetCache("flights", allFlights);
+            } 
+            #endregion
 
             return (allPassengers, allBaggages, allFlights);
         }

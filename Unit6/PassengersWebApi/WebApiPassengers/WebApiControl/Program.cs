@@ -34,7 +34,7 @@ builder.Services.AddTransient<IControlService, ControlService>();
 builder.Services.AddTransient<IPassengersRepository, PassengersRepository>();
 builder.Services.AddTransient<IBaggageRepository, BaggageRepository>();
 builder.Services.AddTransient<IFlightsRepository, FlightsRepository>();
-//builder.Services.AddTransient<ICacheRepository, CacheRepository>();
+builder.Services.AddTransient<ICacheRepository, CacheRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

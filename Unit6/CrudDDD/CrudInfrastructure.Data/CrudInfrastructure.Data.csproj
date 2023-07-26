@@ -26,4 +26,8 @@
     <ProjectReference Include="..\CrudDomain\CrudDomain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Backup\" />
+  </ItemGroup>
+
 </Project>
